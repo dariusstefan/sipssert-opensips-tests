@@ -54,6 +54,7 @@ jobs:
   aggregate:
     needs: test
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
