@@ -18,5 +18,5 @@ def aggregate_junit_reports(report_dir, output_report):
 if __name__ == "__main__":
     import os
     report_dir = os.getenv("REPORT_DIR", "./junit-reports")
-    output_report = os.getenv("OUTPUT_REPORT", "aggregated-report.xml")
+    output_report = os.getenv("OUTPUT_FILE", "aggregated-report.xml")
     aggregate_junit_reports(report_dir, output_report)
