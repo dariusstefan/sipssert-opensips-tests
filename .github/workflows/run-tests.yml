@@ -55,8 +55,20 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - name: Debug LS
-      run: ls -R
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Configure Sparse Checkout
+      run: |
+        git sparse-checkout init --cone
+        git sparse-checkout set .github/scripts/aggregate_junit_reports.py
+        git checkout
+
+    - name: Debug Script Location
+      run: ls -R .github/scripts
+
     - name: Download All Artifacts
       uses: actions/download-artifact@v4
       with:
