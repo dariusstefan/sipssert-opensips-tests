@@ -30,9 +30,6 @@ jobs:
       id: set-matrix
       uses: OpenSIPS/SIPssert/.github/actions/Set_Matrix@main
 
-    - name: Debug Repository Files
-      run: ls -R
-
 
   test:
     needs: setup-matrix
@@ -58,6 +55,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+    - name: Debug LS
+      run: ls -R
     - name: Download All Artifacts
       uses: actions/download-artifact@v4
       with:
