@@ -62,7 +62,7 @@ jobs:
     - name: Aggregate JUnit Reports
       run: |
         pip install junitparser
-        python aggregate_junit_reports.py
+        python .github/scripts/aggregate_junit_reports.py
       env:
         REPORTS_DIR: junit-reports
         OUTPUT_FILE: junit-final-report.xml
