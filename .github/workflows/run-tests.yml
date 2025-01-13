@@ -30,6 +30,10 @@ jobs:
       id: set-matrix
       uses: OpenSIPS/SIPssert/.github/actions/Set_Matrix@main
 
+    - name: Debug Repository Files
+      run: ls -R
+
+
   test:
     needs: setup-matrix
     strategy:
