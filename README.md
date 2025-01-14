@@ -6,6 +6,7 @@
 | OpenSIPS 3.5 | [![OpenSIPS 3.5](https://github.com/OpenSIPS/sipssert-opensips-tests/actions/workflows/run-tests.yml/badge.svg?branch=3.5)](https://github.com/OpenSIPS/sipssert-opensips-tests/actions/workflows/run-tests.yml) |
 | OpenSIPS 3.4 | [![OpenSIPS 3.4](https://github.com/OpenSIPS/sipssert-opensips-tests/actions/workflows/run-tests.yml/badge.svg?branch=3.4)](https://github.com/OpenSIPS/sipssert-opensips-tests/actions/workflows/run-tests.yml) |
 
+![Tests](https://byob.yarr.is/dariusstefan/sipssert-opensips-tests/sipssert_tests_pr)
 # OpenSIPS Tests
 
 This project contains a set of tests that are being performed to test the
