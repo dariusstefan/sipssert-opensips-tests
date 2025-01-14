@@ -95,3 +95,11 @@ jobs:
         echo "${{ steps.test-reporter.outputs.passed }}"
         echo "${{ steps.test-reporter.outputs.failed }}"
         echo "${{ steps.test-reporter.outputs.skipped }}"
+
+    - name: Create badge
+      uses: RubbaBoy/BYOB@v1.3.0
+      with:
+        NAME: sipssert_tests_${{ github.ref_name }}
+        LABEL: Tests
+        STATUS: "${{ steps.test-reporter.outputs.passed }} pass, ${{ steps.test-reporter.outputs.failed }} fail, ${{ steps.test-reporter.outputs.skipped }} skip"
+        COLOR: ${{ steps.test-reporter.outputs.conclusion == 'success' && 'brightgreen' || 'red' }}
