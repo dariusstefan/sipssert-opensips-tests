@@ -102,5 +102,5 @@ jobs:
         NAME: sipssert_tests_${{ github.ref_name }}
         LABEL: Tests
         STATUS: "${{ steps.test-reporter.outputs.passed }} pass, ${{ steps.test-reporter.outputs.failed }} fail, ${{ steps.test-reporter.outputs.skipped }} skip"
-        COLOR: ${{ steps.test-reporter.outputs.conclusion == 'success' && 'brightgreen' || 'red' }}
+        COLOR: ${{ steps.test-reporter.outputs.conclusion == 'success' && 'green' || 'red' }}
         GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
