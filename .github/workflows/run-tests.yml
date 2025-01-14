@@ -91,7 +91,7 @@ jobs:
     - name: Debug final output values
       run: |
         echo "Final output values"
-        echo "{{ steps.test-reporter.outputs.conclusion }}"
-        echo "{{ steps.test-reporter.outputs.passed }}"
-        echo "{{ steps.test-reporter.outputs.failed }}"
-        echo "{{ steps.test-reporter.outputs.skipped }}"
+        echo "${{ steps.test-reporter.outputs.conclusion }}"
+        echo "${{ steps.test-reporter.outputs.passed }}"
+        echo "${{ steps.test-reporter.outputs.failed }}"
+        echo "${{ steps.test-reporter.outputs.skipped }}"
