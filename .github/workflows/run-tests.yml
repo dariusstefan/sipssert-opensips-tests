@@ -79,6 +79,7 @@ jobs:
 
     - name: Print test summary
       uses: mikepenz/action-junit-report@v5
+      id: summary
       if: success() || failure()
       with:
         check_name: 'SIPssert tests report'
@@ -89,30 +90,12 @@ jobs:
         group_suite: true
         include_passed: true
 
-    # - name: Print detail final tests report
-    #   uses: dorny/test-reporter@v1
-    #   id: test-reporter
-    #   if: success() || failure()
-    #   with:
-    #     name: 'Aggregated SIPssert Test Report'
-    #     path: junit-final-report.xml
-    #     reporter: java-junit
-    #     fail-on-error: false
-    #     max-annotations: 0
-
-    # - name: Debug final output values
-    #   run: |
-    #     echo "Final output values"
-    #     echo "${{ steps.test-reporter.outputs.conclusion }}"
-    #     echo "${{ steps.test-reporter.outputs.passed }}"
-    #     echo "${{ steps.test-reporter.outputs.failed }}"
-    #     echo "${{ steps.test-reporter.outputs.skipped }}"
-
-    # - name: Create badge
-    #   uses: RubbaBoy/BYOB@v1.3.0
-    #   with:
-    #     name: sipssert_tests_${{ github.ref_name }}
-    #     label: Tests
-    #     status: "${{ steps.test-reporter.outputs.passed }} passed, ${{ steps.test-reporter.outputs.failed }} failed, ${{ steps.test-reporter.outputs.skipped }} skipped"
-    #     color: ${{ steps.test-reporter.outputs.conclusion == 'success' && 'green' || 'red' }}
-    #     github_token: ${{ secrets.ACTIONS_TOKEN }}
+    - name: Add badge in summary
+      run: |
+        COLOR=${{ steps.summary.outputs.failed > 0 && 'red' || 'green' }}
+        BADGE_URL="https://img.shields.io/badge/Tests-"
+        BADGE_URL+="${{ steps.summary.outputs.passed }}%20passed,"
+        BADGE_URL+="${{ steps.summary.outputs.failed }}%20failed,"
+        BADGE_URL+="${{ steps.summary.outputs.skipped }}%20skipped"
+        BADGE_URL+="-$COLOR"
+        echo "![Tests]($BADGE_URL)" >> $GITHUB_STEP_SUMMARY
