@@ -85,7 +85,6 @@ jobs:
         report_paths: junit-final-report.xml
         annotate_only: true
         fail_on_failure: true
-        flaky_summary: true
         detailed_summary: true
         group_suite: true
 
