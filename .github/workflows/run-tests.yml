@@ -91,6 +91,7 @@ jobs:
         include_passed: true
 
     - name: Add badge in summary
+      if: always()
       run: |
         COLOR=${{ steps.summary.outputs.failed > 0 && 'red' || 'green' }}
         BADGE_URL="https://img.shields.io/badge/Tests-"
