@@ -46,7 +46,7 @@ jobs:
         tests-repo: OpenSIPS/sipssert-opensips-tests
 
     - name: Run Test
-      uses: OpenSIPS/SIPssert/.github/actions/Run_Tests@main
+      uses: dariusstefan/SIPssert/.github/actions/Run_Tests@pull-req
       with:
         tests: ${{ matrix.tests }}
 
@@ -85,9 +85,9 @@ jobs:
         report_paths: junit-final-report.xml
         annotate_only: true
         fail_on_failure: true
-        detailed_summary: true
-        group_suite: true
-        include_passed: true
+        # detailed_summary: true
+        # group_suite: true
+        # include_passed: true
 
     # - name: Print detail final tests report
     #   uses: dorny/test-reporter@v1
