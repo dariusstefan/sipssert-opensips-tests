@@ -100,4 +100,5 @@ jobs:
         BADGE_URL+="${{ steps.summary.outputs.skipped }}%20skipped"
         BADGE_URL+="-$COLOR"
         EXISTING_SUMMARY=$(cat $GITHUB_STEP_SUMMARY)
+        rm $GITHUB_STEP_SUMMARY
         echo -e "![Tests Status]($BADGE_URL)\n$EXISTING_SUMMARY" > $GITHUB_STEP_SUMMARY
